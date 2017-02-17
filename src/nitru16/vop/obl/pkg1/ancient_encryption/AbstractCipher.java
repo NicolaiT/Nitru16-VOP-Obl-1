@@ -10,6 +10,9 @@ package nitru16.vop.obl.pkg1.ancient_encryption;
  *
  * @author Nicolai Truong
  */
-public abstract class AbstractCipher {
-	protected abstract int findCharIndex(char ch);
+public abstract class AbstractCipher implements CipherInterface {
+	CipherInterface cipher = new CipherInterface();
+	protected int findCharIndex(char ch) {
+		return cipher.;
+	}
 }
