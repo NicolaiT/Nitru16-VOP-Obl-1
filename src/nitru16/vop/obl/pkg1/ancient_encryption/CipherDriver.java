@@ -11,7 +11,17 @@ public class CipherDriver {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        CipherInterface cipher;
+        CipherInterface cipher = new CipherInterface() {
+			@Override
+			public String encrypt(String original) {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
+
+			@Override
+			public String decrypt(String encrypted) {
+				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+			}
+		};
 
         String message = "Her har vi en Meddelelse, som er hemmelig!";
         System.out.println("Original: \n" + message);
