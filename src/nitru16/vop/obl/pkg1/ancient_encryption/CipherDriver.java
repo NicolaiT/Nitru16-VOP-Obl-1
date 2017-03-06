@@ -2,16 +2,15 @@ package nitru16.vop.obl.pkg1.ancient_encryption;
 
 /**
  *
- * @author erso 
- *  Udleveret driver klasse til opgave 2, VOP eksamen 10 juni 2016
+ * @author erso Udleveret driver klasse til opgave 2, VOP eksamen 10 juni 2016
  */
 public class CipherDriver {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        CipherInterface cipher = new CipherInterface() {
+	/**
+	 * @param args the command line arguments
+	 */
+	public static void main(String[] args) {
+		CipherInterface cipher = new CipherInterface() {
 			@Override
 			public String encrypt(String original) {
 				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -23,21 +22,25 @@ public class CipherDriver {
 			}
 		};
 
-        String message = "Her har vi en Meddelelse, som er hemmelig!";
-        System.out.println("Original: \n" + message);
+		AbstractCipher AC = new AbstractCipher();
 
-        // Fjern ud-kommenteringen, når AtbashCipher skal testes
+		char ch = (char) AC.findCharIndex('5');
+		
+		System.out.println(ch);
+		
+		String message = "Her har vi en Meddelelse, som er hemmelig!";
+
+		System.out.println("Original: \n" + message);
+	}
+
+	// Fjern ud-kommenteringen, når AtbashCipher skal testes
 //        cipher = new AtbashCipher();
 //        String enc = cipher.encrypt(message);
 //        System.out.println("Atbash: \n" + enc);
 //        System.out.println(cipher.decrypt(enc));
-
-        // Fjern ud-kommenteringen, når CeasarCipher skal testes
+	// Fjern ud-kommenteringen, når CeasarCipher skal testes
 //        cipher = new CeasarCipher(13);
 //        enc = cipher.encrypt(message);
 //        System.out.println("Ceasar 13: \n" + enc);
 //        System.out.println(cipher.decrypt(enc));
-
-    }
-
 }
