@@ -22,12 +22,13 @@ public abstract class AbstractCipher implements CipherInterface {
 			throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 		}
 	};
-	String alphabeth = new String(CipherInterface.ALPHABETH);
 
 	protected int findCharIndex(char ch) {
-		for (int i = -1; i == alphabeth.length(); i++) {
-			ch = (char) alphabeth.indexOf(i);
+		for (int i = 0; i < ALPHABETH.length; i++) {
+			if (ALPHABETH[i] == ch) {
+				return i;
+			}
 		}
-		return ch;
+		return -1;
 	}
 }

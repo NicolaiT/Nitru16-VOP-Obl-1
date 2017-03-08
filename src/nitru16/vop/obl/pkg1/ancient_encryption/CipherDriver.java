@@ -10,37 +10,21 @@ public class CipherDriver {
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
-		CipherInterface cipher = new CipherInterface() {
-			@Override
-			public String encrypt(String original) {
-				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-			}
 
-			@Override
-			public String decrypt(String encrypted) {
-				throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-			}
-		};
-
-		AbstractCipher AC = new AbstractCipher();
-
-		char ch = (char) AC.findCharIndex('5');
-		
-		System.out.println(ch);
-		
 		String message = "Her har vi en Meddelelse, som er hemmelig!";
 
 		System.out.println("Original: \n" + message);
+
+		AtbashCipher cipher = new AtbashCipher();
+		String enc = cipher.encrypt(message);
+
+		System.out.println("Atbash: \n" + enc);
+		System.out.println(cipher.decrypt(enc));
+
+		CeasarCipher cipher2 = new CeasarCipher(13);
+		enc = cipher2.encrypt(message);
+		System.out.println("Ceasar 13: \n" + enc);
 	}
 
-	// Fjern ud-kommenteringen, når AtbashCipher skal testes
-//        cipher = new AtbashCipher();
-//        String enc = cipher.encrypt(message);
-//        System.out.println("Atbash: \n" + enc);
-//        System.out.println(cipher.decrypt(enc));
-	// Fjern ud-kommenteringen, når CeasarCipher skal testes
-//        cipher = new CeasarCipher(13);
-//        enc = cipher.encrypt(message);
-//        System.out.println("Ceasar 13: \n" + enc);
 //        System.out.println(cipher.decrypt(enc));
 }

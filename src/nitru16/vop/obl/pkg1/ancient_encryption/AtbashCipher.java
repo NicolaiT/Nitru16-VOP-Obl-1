@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package nitru16.vop.obl.pkg1.ancient_encryption;
 
 /**
@@ -14,12 +13,25 @@ public class AtbashCipher extends AbstractCipher {
 
 	@Override
 	public String encrypt(String original) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		String encryptedMsg = "";
+		char[] msg = original.toCharArray();
+		for (int i = 0; i < msg.length; i++) {
+			char temp = msg[i];
+			int index = findCharIndex(temp);
+			if (index == -1) {
+				encryptedMsg += temp;
+				continue;
+			}
+			int replaceIdx = ALPHABETH.length - index - 1;
+			char replace = ALPHABETH[replaceIdx];
+			encryptedMsg += replace;
+		}
+		return encryptedMsg;
 	}
 
 	@Override
 	public String decrypt(String encrypted) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return encrypt(encrypted);
 	}
-	
+
 }
