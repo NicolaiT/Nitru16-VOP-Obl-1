@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nitru16.vop.obl.pkg1;
 
+import ancient_encryption.CipherDriver;
 import java.io.File;
 import java.net.URL;
 import java.util.*;
@@ -13,9 +13,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import nitru16.vop.obl.pkg1.rock_scissors_paper.RockScissorPaper;
+import rock_scissors_paper.RockScissorPaper;
 
 /**
  *
@@ -24,7 +28,17 @@ import nitru16.vop.obl.pkg1.rock_scissors_paper.RockScissorPaper;
 public class FXMLDocumentController implements Initializable {
 
 	@FXML
-	private Label computerHand;
+	private TextField normalText;
+	@FXML
+	private TextField encryptText;
+	@FXML
+	private TextField decryptText;
+	@FXML
+	private Button encryptButton;
+	@FXML
+	private Button decryptButton;
+	@FXML
+	private ToggleGroup cryptography;
 	@FXML
 	private Button sten;
 	@FXML
@@ -32,14 +46,33 @@ public class FXMLDocumentController implements Initializable {
 	@FXML
 	private Button papir;
 	@FXML
+	private Label computerHand;
+	@FXML
 	private Label result;
-
-	private RockScissorPaper game = new RockScissorPaper();
-	private Map<String, Image> picMap = new HashMap<>();
 	@FXML
 	private ImageView playerHandPicture;
 	@FXML
 	private ImageView computerHandPicture;
+	@FXML
+	private RadioButton atbashButton;
+	@FXML
+	private RadioButton ceasarButton;
+	@FXML
+	private TextField rotFactor;
+
+	private CipherDriver crypto = new CipherDriver();
+	private RockScissorPaper game = new RockScissorPaper();
+	private Map<String, Image> picMap = new HashMap<>();
+
+	@FXML
+	private void encryptedMessage(ActionEvent event) {
+		encryptText.setText(crypto.getMessage());
+	}
+
+	@FXML
+	private void decryptedMessage(ActionEvent event) {
+		decryptText.setText(crypto.getMessage());
+	}
 
 	@FXML
 	private void pressedRock(ActionEvent event) {

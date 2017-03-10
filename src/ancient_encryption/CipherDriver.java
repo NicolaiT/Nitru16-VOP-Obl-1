@@ -1,4 +1,4 @@
-package nitru16.vop.obl.pkg1.ancient_encryption;
+package ancient_encryption;
 
 /**
  *
@@ -6,25 +6,29 @@ package nitru16.vop.obl.pkg1.ancient_encryption;
  */
 public class CipherDriver {
 
+	private String message = "Her har vi en Meddelelse, som er hemmelig!";
+
+	public String getMessage(){
+		return message;
+	}
+	
 	/**
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
-
-		String message = "Her har vi en Meddelelse, som er hemmelig!";
-
-		System.out.println("Original: \n" + message);
+		CipherDriver crypto = new CipherDriver();
+		
+		System.out.println("Original: \n" + crypto.getMessage());
 
 		AtbashCipher cipher = new AtbashCipher();
-		String enc = cipher.encrypt(message);
+		String enc = cipher.encrypt(crypto.getMessage());
 
 		System.out.println("Atbash: \n" + enc);
 		System.out.println(cipher.decrypt(enc));
 
 		CeasarCipher cipher2 = new CeasarCipher(13);
-		enc = cipher2.encrypt(message);
+		enc = cipher2.encrypt(crypto.getMessage());
 		System.out.println("Ceasar 13: \n" + enc);
+		System.out.println(cipher2.decrypt(enc));
 	}
-
-//        System.out.println(cipher.decrypt(enc));
 }

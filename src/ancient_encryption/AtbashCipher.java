@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nitru16.vop.obl.pkg1.ancient_encryption;
+package ancient_encryption;
 
 /**
  *

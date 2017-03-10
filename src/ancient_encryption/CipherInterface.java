@@ -1,4 +1,4 @@
-package nitru16.vop.obl.pkg1.ancient_encryption;
+package ancient_encryption;
 
 /**
  *
